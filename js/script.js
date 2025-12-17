@@ -112,8 +112,8 @@ document.querySelectorAll("a[href]").forEach(link => {
 /* =========================
    CONTACT FORM (Toast, no alert)
 ========================= */
-document.querySelector(".contact-form")?.addEventListener("submit", function (e) {
-  e.preventDefault();
+document.querySelector(".contact-form")?.addEventListener("submit", function () {
+  
 
   const toast = document.querySelector(".toast");
   toast?.classList.add("show");
@@ -124,3 +124,4 @@ document.querySelector(".contact-form")?.addEventListener("submit", function (e)
 
   this.reset();
 });
+
