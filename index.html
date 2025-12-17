@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+    Prem Raj Kumar's Portfolio
+  </title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  </head>
+  <body>
+    <!--Header-->
+    <header class="header">
+      <nav class="nav container">
+        <div class="logo"><a href="#home">The P R K</a></div>
+        <div class="menu-toggle"onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#blog">Blogs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+
+
+    
+  </div>
+    <!--Hero Section--> 
+    <section id = 'home' class='hero'>
+      <div class="container">
+        <div class="hero-content">
+          <div class='hero-text'>
+            <h2>Welcome!</h2>
+            <h1>I am a<span class="text-glow"> Data Analyst</span></h1>
+            <p class="hero-description">
+              Data analyst and Insights Specialist
+            </p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary" onclick="scrollToSection('contact')">Get In Touch</button>
+              <button class="btn btn-outline" onclick="scrollToSection('about')">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <main class="page">
+
+      <!--About Section-->
+      <section id="about" class="section alt">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <h2>Hey, I'm <span class="text-glow">Prem Raj Kumar!</span></h2>
+              <p>I’m a passionate Data Analyst & Insights Specialist who loves turning data into stories. 
+                When I’m not crunching numbers, you’ll find me exploring tech, coding, or leveling up my skills.</p>
+              <br>
+              <p>I believe that every dataset tells a story,
+                and my mission is to help organizations discover and act upon those stories to drive meaningful outcomes.</p>
+            </div>
+              <div class="profile-image">
+                <img src="assets/images/hero/theprk.jpg" alt="Prem Raj Kumar's Photo">
+              </div>
+          </div>
+          <div class="skills-grid">
+            <h3>Key Skills</h3>
+              <div class="skill-item"><h5>Python</h5></div>
+              <div class="skill-item"><h5>SQL</h5></div>
+              <div class="skill-item"><h5>Power BI</h5></div>
+              <div class="skill-item"><h5>Excel</h5></div>
+              <div class="skill-item"><h5>Statistical Analysis</h5></div>
+            </div>
+        </div>
+      </section>
+
+      <!--Projects Section-->
+      <section id="projects" class="section">
+        <div class="container">
+          <h2 class="section-title">My Data Projects</h2>
+          <div class="project-grid">
+
+            <div class="project-category-card">
+              <div class="category-icon">
+                <i class="fa-brands fa-python"></i>
+              </div>
+              <h3>Python and EDA</h3>
+              <p>Advanced Analytics</p>
+               <a href="./html/python.html" class="category-count-link"></a>
+              
+              
+            </div>
+
+            <div class="project-category-card">
+              <div class="category-icon">
+                <i class="fa-solid fa-chart-column"></i>
+              </div>
+              <h3>Power BI</h3>
+              <p>Data Visualizations</p>
+              <a href="./html/powerbi.html" class="category-count-link">
+
+              </a>
+            </div>
+
+            <div class="project-category-card">
+              <div class="category-icon">
+                <i class="fa-solid fa-database"></i> 
+              </div>
+              <h3>SQL</h3>
+              <p>Database Management</p>
+              <a href="./html/sql.html" class="category-count-link">
+
+              </a>
+            </div>
+          
+            <div class="project-category-card">
+              <div class="category-icon">
+                <i class="fa-solid fa-file-excel"></i>
+              </div>
+              <h3>Excel</h3>
+              <p>Business Intelligence</p>
+              <a href="./html/excel.html" class="category-count-link">
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--Blog Section-->
+      <section id="blog" class="blog">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">My Blogs</h2>
+            <h3 class="section-subtitle">Latest Insights</h3>
+          </div>
+          <div class="blog-grid">
+
+          <a href="https://theprk.medium.com/i-used-to-skip-exploratory-data-analysis-until-my-results-stopped-making-sense-0a33dee073f8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="blog-link">
+              <article class="blog-card">
+                <div class="blog-image">
+                  <img src="assets/images/blog/EdA.png" alt="Python article cover">
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-meta">
+                  <span class="blog-date">Dec 13, 2025</span>
+                  <span class="blog-read-time">4 min read</span>
+                  </div>
+
+                  <h4 class="blog-title">I used to skip Exploratory Data Analysis - Until my results stopped making sense</h4>
+                </div>
+              </article>
+            </a>
+
+
+          <a href="https://theprk.medium.com/how-i-turned-chatgpt-into-my-personal-book-reading-coach-e91448dbb51e"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="blog-link">
+              <article class="blog-card">
+                <div class="blog-image">
+                  <img src="assets/images/blog/imggg.png" alt="Python article cover">
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-meta">
+                  <span class="blog-date">Sep 30, 2025</span>
+                  <span class="blog-read-time">5 min read</span>
+                  </div>
+
+                  <h4 class="blog-title">How I Turned ChatGPT Into My Personal Book Reading Coach</h4>
+                </div>
+              </article>
+            </a>
+
+
+
+          
+            <a href="https://medium.com/@theprk/why-python-looks-confusing-at-first-but-isnt-6f95275c71e7"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="blog-link">
+              <article class="blog-card">
+                <div class="blog-image">
+                  <img src="assets/images/blog/why-python.png" alt="Python article cover">
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-meta">
+                  <span class="blog-date">Aug 26, 2025</span>
+                  <span class="blog-read-time">4 min read</span>
+                  </div>
+
+                  <h4 class="blog-title">😵Why Python Looks Confusing at First (But Isn’t)…</h4>
+                </div>
+              </article>
+            </a>
+          </div>
+          
+            
+            
+          
+            <div class="blog-more">
+              <a href="https://medium.com/@theprk"
+              target="_blank"
+              class="btn btn-outline">
+              View all posts
+              </a>
+            </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+
+      
+      <h2 class="signature-text">Stay Connected</h2>
+
+      <div class="contact-content">
+
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            
+            <span class="icon">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <p>premrajkumar25prk@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <p>Kurnool, Andhra Pradesh</p>
+            </div>
+          </div>
+
+          <!-- Socials -->
+          <div class="follow-me">
+            <!--<h4>Follow Me on</h4>-->
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/prem-raj-kumar-4160b6213/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  class="social linkedin">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/prem-raj-kumar"
+                  target="_blank"
+                  aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+
+                <a href="mailto:premrajkumar25prk@gmail.com"
+                  aria-label="Email">
+                  <i class="fas fa-envelope"></i>
+                </a>
+
+                <a href="https://medium.com/@theprk"
+                  target="_blank"
+                  aria-label="Medium"
+                  class="social-link medium">
+                  <i class="fab fa-medium-m"></i>
+                </a>
+
+
+              
+
+          </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: FORM -->
+        <form class="contact-form">
+
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Full name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email address"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Your subject"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Your message"
+              required
+            ></textarea>
+          </div>
+
+          
+          <button type="submit" class="cta-button">
+            
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+      <!-- Footer -->
+      <footer class="footer">
+          <div class="container">
+              <div class="footer-content">
+                  <div class="footer-main">
+                      <!--<div class="footer-logo">The P R K</div>-->
+                        <div class="footer-copyright">
+                            © 2025 Prem Raj Kumar. All rights reserved.
+                        </div>
+                        <div class="footer-legal">
+                          <a href="/privacy-policy.html">Privacy Policy</a>
+                          <span>•</span>
+                          <a href="/terms-of-service.html">Terms of Service</a>
+                        </div>
+                      
+                      </div>
+                  <!--<nav class="footer-nav">
+                      <a href="#home" class="footer-link">Home</a>
+                      <a href="#about" class="footer-link">About</a>
+                      <a href="#projects" class="footer-link">Projects</a>
+                      <a href="#blog" class="footer-link">Blog</a>
+                      <a href="#contact" class="footer-link">Contact</a>
+                  </nav>-->
+                  <!--<button class="back-to-top" id="#home">↑</button>-->
+                  
+
+              </div>
+          </div>
+      </footer>
+    </main>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast">
+          <div class="toast-content">
+              <div class="toast-title">Message Sent!</div>
+              <div class="toast-description">Thank you for your message. I'll get back to you soon.</div>
+          </div>
+      </div>
+
+      <script src="js/script.js "></script>
+    
+  </body>
+  
+</html>
