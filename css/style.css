@@ -25,66 +25,15 @@ body {
   color: #e6e7df;
   transition:ease-in;
 }
-/* =========================
-   GLOBAL SKELETON SCREEN
-========================= */
-#page-skeleton {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  z-index: 9999;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Skeleton base */
-.skeleton {
-  position: relative;
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* Shimmer */
-.skeleton::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.12),
-    transparent
-  );
-  animation: shimmer 1.2s infinite;
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* Sizes */
-.hero-skel {
-  height: 60vh;
-}
-
-.section-skel {
-  height: 180px;
-}
-
-.card-skel {
-  height: 140px;
-}
-
 
 section {
   background: transparent;
 
+}
+
+
+.hidden {
+  display: none;
 }
 
 
@@ -560,6 +509,15 @@ section {
   position: absolute;
   inset: 0;
   z-index: 10;
+  }
+
+  .project-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  position: relative;
+  z-index: 1;
+
 }
 
 /* Blog Section */
@@ -643,7 +601,7 @@ section {
 .blog-more {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 5rem;
   position: relative;
   z-index: 1;
 }
@@ -998,6 +956,5 @@ label {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
-
 
 
