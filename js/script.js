@@ -13,6 +13,17 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
+window.addEventListener("load", () => {
+  const skeleton = document.getElementById("page-skeleton");
+  if (!skeleton) return;
+
+  skeleton.style.opacity = "0";
+  skeleton.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    skeleton.remove();
+  }, 400);
+});
 
 
 
@@ -108,6 +119,8 @@ document.querySelectorAll("a[href]").forEach(link => {
   });
 });
 
+let isSubmitting = false;
+
 /* =========================
    CONTACT FORM (EmailJS + Toast)
 ========================= */
@@ -117,8 +130,12 @@ if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    if (isSubmitting) return; // 🚫 block spam clicks
+    isSubmitting = true;
+
     if (typeof emailjs === "undefined") {
       console.error("EmailJS not loaded");
+      isSubmitting = false;
       return;
     }
 
@@ -141,17 +158,21 @@ if (contactForm) {
 
         setTimeout(() => {
           toast?.classList.remove("show");
-        }, 3500);
-
+        }, 2000); // 👈 shorter & snappy
+        
         contactForm.reset();
-        submitBtn.disabled = false;
       })
       .catch((error) => {
         console.error("EmailJS Error:", error);
+      })
+      .finally(() => {
         submitBtn.disabled = false;
+        isSubmitting = false;
       });
   });
 }
+
+
 
 
 
