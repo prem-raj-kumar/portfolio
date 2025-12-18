@@ -130,6 +130,7 @@ if (contactForm) {
       email: document.getElementById("email").value,
       subject: document.getElementById("subject").value,
       message: document.getElementById("message").value,
+      time: new Date().toLocaleString()
     };
 
     emailjs
@@ -151,6 +152,7 @@ if (contactForm) {
       });
   });
 }
+
 
 
 
