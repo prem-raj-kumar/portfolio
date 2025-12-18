@@ -1,156 +1,140 @@
-/* =====================================================
-   PROJECT DATA
-===================================================== */
-const projects = {
-  "student-performance": {
-    title: "Student Performance Analysis",
-    badge: "Python Project",
-    description:
-      "Analyzed student academic performance data to identify factors affecting outcomes and uncover improvement opportunities.",
-    summary:
-      "This project explores score distributions, demographic impact, and performance trends using exploratory data analysis techniques.",
-    images: [
-      "exam.png",
-      "gender_distribution.png",
-      "segments.png",
-      "attendance.png",
-      "teacher_quality.png"
-      
-    ],
-    tools: ["Python", "Pandas", "EDA"],
-    github: "https://github.com/yourname/student-performance-analysis",
-    live: "#"
-  },
+/* =========================
+   MOBILE MENU TOGGLE
+========================= */
+function toggleMenu() {
+  const navLinks = document.getElementById("navLinks");
+  navLinks?.classList.toggle("show");
+}
 
-  "sales": {
-    title: "Book Sales Analysis",
-    badge: "Python Project",
-    description:
-      "Analyzed regional sales data to identify growth patterns, key revenue drivers, and actionable insights for business decisions.",
-    summary:
-      "The analysis focused on regional performance, revenue contribution, and trend identification to support data-driven decisions.",
-    images: [
-      "images/sales-1.png",
-      "images/sales-2.png"
-    ],
-    tools: ["Python", "NumPy", "Matplotlib"],
-    github: "https://github.com/yourname/sales-analysis",
-    live: "#"
-  }
+// Close mobile menu on link click
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks")?.classList.remove("show");
+  });
+});
+
+
+
+
+/* =========================
+   INTERSECTION OBSERVER (Animations)
+   SINGLE animation system
+========================= */
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: "0px 0px -60px 0px"
 };
 
-/* =====================================================
-   DOM ELEMENTS
-===================================================== */
-const modal = document.getElementById("projectModal");
-const modalBox = document.querySelector(".project-modal-box");
-
-const modalTitle = document.getElementById("modalTitle");
-const modalBadge = document.getElementById("modalBadge");
-const modalDescription = document.getElementById("modalDescription");
-const modalSummary = document.getElementById("modalSummary");
-const modalImage = document.getElementById("modalImage");
-const modalGithub = document.getElementById("modalGithub");
-
-const modalTools = document.getElementById("modalTools");
-
-/* =====================================================
-   IMAGE CAROUSEL STATE
-===================================================== */
-let currentImageIndex = 0;
-let activeImages = [];
-
-/* =====================================================
-   OPEN MODAL
-===================================================== */
-function openProjectModal(key) {
-  const project = projects[key];
-
-  if (!project) {
-    console.error(`Project "${key}" not found`);
-    return;
-  }
-
-  // Text content
-  modalTitle.textContent = project.title;
-  modalBadge.textContent = project.badge;
-  modalDescription.textContent = project.description;
-  modalSummary.textContent = project.summary;
-
-  // Links
-  modalGithub.href = project.github;
-  //modalLive.href = project.live;
-
-  // Tools
-  modalTools.innerHTML = "";
-  project.tools.forEach(tool => {
-    const span = document.createElement("span");
-    span.textContent = tool;
-    modalTools.appendChild(span);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+      observer.unobserve(entry.target); // animate once only
+    }
   });
+}, observerOptions);
 
-  // Images
-  activeImages = project.images || [];
-  currentImageIndex = 0;
-  updateModalImage();
+document.querySelectorAll(
+  ".section, .skill-item, .project-category-card, .job-entry, .education-entry, .blog-card"
+).forEach(el => observer.observe(el));
 
-  // Show modal
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
 
-/* =====================================================
-   UPDATE IMAGE
-===================================================== */
-function updateModalImage() {
-  if (!activeImages.length) return;
-  modalImage.src = activeImages[currentImageIndex];
-  modalImage.alt = "Project Screenshot " + (currentImageIndex + 1);
-}
 
-/* =====================================================
-   IMAGE NAVIGATION
-===================================================== */
-function nextImage() {
-  if (!activeImages.length) return;
-  currentImageIndex = (currentImageIndex + 1) % activeImages.length;
-  updateModalImage();
-}
+/* =========================
+   SCROLL HANDLER (ONE ONLY)
+========================= */
+const header = document.querySelector(".header");
+const hero = document.querySelector(".hero");
 
-function prevImage() {
-  if (!activeImages.length) return;
-  currentImageIndex =
-    (currentImageIndex - 1 + activeImages.length) % activeImages.length;
-  updateModalImage();
-}
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
 
-/* =====================================================
-   CLOSE MODAL
-===================================================== */
-function closeProjectModal() {
-  modal.classList.remove("active");
-  document.body.style.overflow = "";
-}
+  /* Header shrink / blur */
+  if (header) {
+    header.classList.toggle("scrolled", scrollY > 50);
+  }
 
-/* =====================================================
-   EVENT HANDLERS
-===================================================== */
-
-/* Close when clicking outside modal box */
-modal.addEventListener("click", function (e) {
-  if (e.target === modal) {
-    closeProjectModal();
+  /* Hero background zoom (guarded) */
+  if (hero) {
+    hero.style.backgroundSize = 100 + scrollY / 40 + "%";
   }
 });
 
-/* Prevent inner clicks */
-modalBox.addEventListener("click", function (e) {
-  e.stopPropagation();
-});
 
-/* Close on ESC */
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && modal.classList.contains("active")) {
-    closeProjectModal();
+/* =========================
+   HERO CONTENT LOAD ANIMATION
+========================= */
+window.addEventListener("load", () => {
+  const heroContent = document.querySelector(".hero-content");
+
+  if (heroContent) {
+    setTimeout(() => {
+      heroContent.classList.add("visible");
+    }, 300); // adjust between 600–1000ms if you want
   }
 });
+
+/* =========================
+   SMOOTH SCROLL TO SECTION
+========================= */
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  section?.scrollIntoView({ behavior: "smooth" });
+}
+
+
+/* =========================
+   PAGE TRANSITIONS (SCOPED)
+========================= */
+document.querySelectorAll("a[href]").forEach(link => {
+  link.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("http") ||
+      this.target === "_blank"
+    ) return;
+
+    e.preventDefault();
+
+    const page = document.querySelector(".page");
+    page?.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300);
+  });
+});
+
+
+/* =========================
+   CONTACT FORM (Toast, no alert)
+========================= */
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
+
+  emailjs
+    .send("service_igjmzz8", "template_zniymed", params)
+    .then(() => {
+      document.querySelector(".toast")?.classList.add("show");
+
+      setTimeout(() => {
+        document.querySelector(".toast")?.classList.remove("show");
+      }, 3500);
+
+      this.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+    });
+});
+
