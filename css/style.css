@@ -386,6 +386,7 @@ section {
 
   margin-top: 6rem;      /* space from title */
   padding-bottom: 6rem;  /* space for hover + button */
+  margin-bottom: 5rem;
 }
 
 .project-category-grid {
@@ -517,7 +518,7 @@ section {
  .project-more {
   display: flex;
   justify-content: center;
-  margin-top: 6rem;
+  margin-top: 0;
 }
 
 
@@ -957,6 +958,7 @@ label {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
 
 
 
