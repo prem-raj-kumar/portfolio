@@ -29,7 +29,8 @@ project-root/
 │   └── powerbi.html
 │
 ├── css/
-│   └── style.css             # Global styles
+│   ├── style.css              # Global styles
+│   └── projects.css           # Project styles
 │
 ├── js/
 │   ├── script.js             # UI & interaction logic
