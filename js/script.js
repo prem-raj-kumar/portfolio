@@ -108,35 +108,50 @@ document.querySelectorAll("a[href]").forEach(link => {
   });
 });
 
-
 /* =========================
-   CONTACT FORM (Toast, no alert)
+   CONTACT FORM (EmailJS + Toast)
 ========================= */
-document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+const contactForm = document.querySelector(".contact-form");
 
-  const params = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
-  };
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  emailjs
-    .send("service_igjmzz8", "template_zniymed", params)
-    .then(() => {
-      const toast = document.querySelector(".toast");
-      toast?.classList.add("show");
+    if (typeof emailjs === "undefined") {
+      console.error("EmailJS not loaded");
+      return;
+    }
 
-      setTimeout(() => {
-        toast?.classList.remove("show");
-      }, 3500);
+    const submitBtn = contactForm.querySelector("button");
+    submitBtn.disabled = true;
 
-      this.reset();
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
-    });
-});
+    const params = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value,
+    };
+
+    emailjs
+      .send("service_igjmzz8", "template_zniymed", params)
+      .then(() => {
+        const toast = document.querySelector(".toast");
+        toast?.classList.add("show");
+
+        setTimeout(() => {
+          toast?.classList.remove("show");
+        }, 3500);
+
+        contactForm.reset();
+        submitBtn.disabled = false;
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        submitBtn.disabled = false;
+      });
+  });
+}
+
+
 
 
