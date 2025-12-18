@@ -40,6 +40,6 @@ project-root/
 │       ├── hero/
 │       ├── python/
 │       ├── blog/
-│       └── branding/
+│       └── thumbnails/
 │
 └── README.md
