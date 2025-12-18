@@ -511,14 +511,12 @@ section {
   z-index: 10;
   }
 
-  .project-more {
+ .project-more {
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
-  position: relative;
-  z-index: 1;
-
+  margin-top: 0;
 }
+
 
 /* Blog Section */
 .blog {
@@ -956,5 +954,6 @@ label {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
 
 
