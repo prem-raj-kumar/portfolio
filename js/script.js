@@ -13,17 +13,6 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
-window.addEventListener("load", () => {
-  const skeleton = document.getElementById("page-skeleton");
-  if (!skeleton) return;
-
-  skeleton.style.opacity = "0";
-  skeleton.style.pointerEvents = "none";
-
-  setTimeout(() => {
-    skeleton.remove();
-  }, 400);
-});
 
 
 
@@ -119,63 +108,33 @@ document.querySelectorAll("a[href]").forEach(link => {
   });
 });
 
-let isSubmitting = false;
 
 /* =========================
-   CONTACT FORM (EmailJS + Toast)
+   CONTACT FORM (Toast, no alert)
 ========================= */
-const contactForm = document.querySelector(".contact-form");
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
 
-    if (isSubmitting) return; // 🚫 block spam clicks
-    isSubmitting = true;
+  emailjs
+    .send("service_igjmzz8", "template_zniymed", params)
+    .then(() => {
+      document.querySelector(".toast")?.classList.add("show");
 
-    if (typeof emailjs === "undefined") {
-      console.error("EmailJS not loaded");
-      isSubmitting = false;
-      return;
-    }
+      setTimeout(() => {
+        document.querySelector(".toast")?.classList.remove("show");
+      }, 3500);
 
-    const submitBtn = contactForm.querySelector("button");
-    submitBtn.disabled = true;
-
-    const params = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      subject: document.getElementById("subject").value,
-      message: document.getElementById("message").value,
-      time: new Date().toLocaleString()
-    };
-
-    emailjs
-      .send("service_igjmzz8", "template_zniymed", params)
-      .then(() => {
-        const toast = document.querySelector(".toast");
-        toast?.classList.add("show");
-
-        setTimeout(() => {
-          toast?.classList.remove("show");
-        }, 2000); // 👈 shorter & snappy
-        
-        contactForm.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        isSubmitting = false;
-      });
-  });
-}
-
-
-
-
-
-
-
+      this.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+    });
+});
 
