@@ -112,16 +112,31 @@ document.querySelectorAll("a[href]").forEach(link => {
 /* =========================
    CONTACT FORM (Toast, no alert)
 ========================= */
-document.querySelector(".contact-form")?.addEventListener("submit", function () {
-  
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  const toast = document.querySelector(".toast");
-  toast?.classList.add("show");
+  const params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
 
-  setTimeout(() => {
-    toast?.classList.remove("show");
-  }, 3500);
+  emailjs
+    .send("service_igjmzz8", "template_zniymed", params)
+    .then(() => {
+      const toast = document.querySelector(".toast");
+      toast?.classList.add("show");
 
-  this.reset();
+      setTimeout(() => {
+        toast?.classList.remove("show");
+      }, 3500);
+
+      this.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+    });
 });
+
 
