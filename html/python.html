@@ -74,6 +74,7 @@
           <p>
             Analyzed student academic performance to identify factors affecting outcomes.
           </p>
+          
 
           <a href="#" class="project-link outline-btn"
             onclick="openProjectModal('student-performance'); return false;">
@@ -99,23 +100,7 @@
           </a>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-image">
-        <img src="" alt="Netflix">
-      </div>
-      <div class="project-content">
-          <h3>Netflix EDA</h3>
-          <span class="project-domain">Entertainment Analytics</span>
-          <p>
-            Analyzed content trends, genres, and release patterns.
-          </p>
-          
-          <a href="#" class="project-link outline-btn"
-            onclick="openProjectModal('netflix'); return false;">
-            See My Work
-          </a>
-        </div>
-      </div>
+      
     </section>
   </main>
   <section class="back-to-portfolio">
@@ -227,11 +212,28 @@ const projects = {
     title: "Student Performance Analysis",
     badge: "Python Project",
 
-    description:
-      "Analyzed student academic performance data to identify factors affecting outcomes and uncover improvement opportunities.",
+     description: 
+      ` Analyzed student academic performance data to identify factors
+      affecting outcomes and uncover improvement opportunities.<br><br>
+
+      <strong>Dataset Size:</strong> 6,607 students<br>
+      <strong>Objective:</strong> Identify the key factors influencing Exam Score
+      and recommend actionable improvements for the school.<br><br>
+
+      <strong>Key Findings</strong><br>
+
+      Attendance is the strongest predictor of exam success.<br>
+      Increased study hours significantly improve performance.<br>
+      Targeted tutoring positively impacts outcomes.<br>
+      Institutional interventions can improve average scores by ~10%.
+      `,
+      
+      
 
     summary:
-      "This project explores score distributions, demographic impact, and performance trends using exploratory data analysis techniques.",
+    
+      "The analysis demonstrates how schools can improve academic performance through operational strategies rather than curriculum changes.",
+      
 
     images: [
       `${IMAGE_BASE}python/python_img1.png`,
@@ -243,7 +245,7 @@ const projects = {
 
     tools: ["Python", "Pandas", "EDA"],
 
-    github: "https://github.com/yourname/student-performance-analysis",
+    github: "https://github.com/prem-raj-kumar/student-performance-analysis",
     live: "#"
   },
 
@@ -300,7 +302,7 @@ function openProjectModal(key) {
   // Text content
   modalTitle.textContent = project.title;
   modalBadge.textContent = project.badge;
-  modalDescription.textContent = project.description;
+  modalDescription.innerHTML = project.description;
   modalSummary.textContent = project.summary;
 
   // Links
