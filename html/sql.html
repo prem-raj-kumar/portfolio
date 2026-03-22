@@ -47,11 +47,11 @@
   <!-- =========================
        SIDE NAV
   ========================== -->
-  <aside class="project-side-nav">
-    <a href="python.html" class="side-nav-item"><i class="fa-brands fa-python"></i></a>
-    <a href="powerbi.html" class="side-nav-item"><i class="fa-solid fa-chart-column"></i></a>
-    <a href="sql.html" class="side-nav-item active"><i class="fa-solid fa-database"></i></a>
-    <a href="excel.html" class="side-nav-item"><i class="fa-solid fa-file-excel"></i></a>
+ <aside class="project-side-nav">
+    <a href="python.html" class="side-nav-item"><i class="fa-brands fa-python"><span class="nav-label">Python Projects</span></i></a>
+    <a href="powerbi.html" class="side-nav-item"><i class="fa-solid fa-chart-column"><span class="nav-label">Power BI Projects</span></i></a>
+    <a href="sql.html" class="side-nav-item active"><i class="fa-solid fa-database"><span class="nav-label">SQL Projects</span></i></a>
+    <a href="excel.html" class="side-nav-item"><i class="fa-solid fa-file-excel"><span class="nav-label">Excel Projects</span></i></a>
   </aside>
 
   <!-- =========================
@@ -63,7 +63,7 @@
       <!-- Grocery Store Management -->
       <div class="project-card">
         <div class="project-image">
-          <img src="grocery_sql.png" alt="Grocery Store Management SQL Project">
+          <img src="../assets/images/thumbnails/gsm_thumbnail.png" alt="Sales Data Project">
         </div>
 
         <div class="project-content">
@@ -85,7 +85,7 @@
       <!-- Pizza Order Management -->
       <div class="project-card">
         <div class="project-image">
-          <img src="pizza_sql.png" alt="Pizza Order Management SQL Project">
+          <img src="../assets/images/thumbnails/pizza_thumbnail.png" alt="Sales Data Project">
         </div>
 
         <div class="project-content">
@@ -190,26 +190,27 @@
 /* =====================================================
    PROJECT DATA
 ===================================================== */
+const IMAGE_BASE = "../assets/images/";
+
 const projects = {
-  "grocery": {
+  grocery: {
     title: "Grocery Store Management",
     badge: "SQL Project",
     description:
-      "Analyzed student academic performance data to identify factors affecting outcomes and uncover improvement opportunities.",
+      "Built and managed a grocery store database system to track inventory, customers, and sales transactions efficiently.",
     summary:
-      "This project explores score distributions, demographic impact, and performance trends using exploratory data analysis techniques.",
+      "This project focuses on designing a relational database, creating ER diagrams, and writing SQL queries for managing grocery store operations.",
     images: [
-      "exam.png",
-      "gender_distribution.png",
-      "segments.png",
-      "attendance.png",
-      "teacher_quality.png"
-      
+      `${IMAGE_BASE}sql/er_gsm.jpg`,
+      `${IMAGE_BASE}sql/Screenshot (96).png`,
+      `${IMAGE_BASE}sql/Screenshot (97).png`,
+      `${IMAGE_BASE}sql/Screenshot (98).png`
     ],
-    tools: ["Python", "Pandas", "EDA"],
-    github: "https://github.com/yourname/student-performance-analysis",
+    tools: ["SQL", "MySQL", "Database Design"],
+    github: "https://github.com/yourname/grocery-store-management",
     live: "#"
   },
+
 
   "pizza": {
     title: "Pizza Order Management",
