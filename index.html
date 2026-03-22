@@ -43,7 +43,17 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
+          <li class="dropdown">
+            <a href="#">Resume ▾</a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="assets/resume/premrajkumar_resume.pdf" target="_blank" rel="noopener noreferrer">
+                  View Resume
+                </a>
+              </li>
+            </ul>
+          </li>
           <li><a href="#blog">Blogs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -54,7 +64,7 @@
 
 
     
-  </div>
+  
     <!--Hero Section--> 
     <section id = 'home' class='hero'>
       <div class="container">
@@ -69,6 +79,7 @@
               <button class="btn btn-primary" onclick="scrollToSection('contact')">Get In Touch</button>
               <button class="btn btn-outline" onclick="scrollToSection('about')">Learn More</button>
             </div>
+           
           </div>
         </div>
       </div>
@@ -87,11 +98,24 @@
               <br>
               <p>I believe that every dataset tells a story,
                 and my mission is to help organizations discover and act upon those stories to drive meaningful outcomes.</p>
+                <!-- Resume Button -->
+            
+              <a href="assets/resume/premrajkumar_resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-resume">
+              <i class="fas fa-download"></i> Resume
+            </a>
             </div>
+
+            
+            
+
               <div class="profile-image">
                 <img src="assets/images/hero/theprk.jpg" alt="Prem Raj Kumar's Photo">
               </div>
           </div>
+          
           <div class="skills-grid">
             <h3>Key Skills</h3>
               <div class="skill-item"><h5>Python</h5></div>
@@ -101,6 +125,7 @@
               <div class="skill-item"><h5>Statistical Analysis</h5></div>
             </div>
         </div>
+           
       </section>
 
       <!--Projects Section-->
