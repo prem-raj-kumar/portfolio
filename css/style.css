@@ -68,6 +68,58 @@ section {
               box-shadow 0.3s ease;
 }
 
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+
+  background: rgba(255, 255, 255, 0.05); /* ✨ transparent glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 180px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #f8fafc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #2e2c24;
+  color: #000;
+}
+
+/* SHOW ON HOVER */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 
 .nav {
   display: flex;
@@ -170,7 +222,7 @@ section {
       url("dataAnalyst.png"),fixed;
 
     background-size:100%;
-    background-position:center;   /* shorthand instead of position-x */
+    background-position:center;   
     background-repeat: no-repeat;
     transition: ease-in-out;
 
@@ -180,9 +232,10 @@ section {
 
   .hero-content {
   opacity: 0;
-  transform: translateY(30px); /* slide up from below */
+  transform: translateY(30px); 
   transition: opacity 1s ease, transform 1s ease;
 }
+
 
 .hero-content.visible {
   opacity: 1;
@@ -212,7 +265,43 @@ section {
     margin-top: 1.5rem;
   }
 
+  
+/* Resume Button */
+.about-text .btn-resume {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  margin-left: 5px;
+}
+
+
+.btn-resume {
+  background: rgba(255, 255, 255, 0.08);
+  color: #facc15;
+  border: 2px solid #facc15;
+  padding: 0.7rem 1.6rem; 
+  border-radius: 30px;   
+  font-weight: bold;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-resume:hover {
+  background: #ffcc02;
+  color: #000;
+  /*box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);*/
+  transform: translateY(-3px) scale(1.05);
+}
+
+.btn-resume i {
+  margin-right: 8px;
+}
+
 .btn {
+  
   padding: 0.7rem 1.5rem;
   border-radius: 25px;
   cursor: pointer;
@@ -277,7 +366,10 @@ section {
 }
 
 .about-text{
-  flex: 1 1 400px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
 }
 .about-text h2
 {
@@ -609,7 +701,7 @@ section {
 }
 
 
-/* Contact Section */
+/* -infoSection */
 
 
 .contact-form {
@@ -728,12 +820,13 @@ label {
   padding: 1rem;
   border-radius: 10px;
   border: 1px solid;
+  border-color:#464533  ;
   transition: all 0.3s ease;
   
 }
 .contact-item:hover{
   transform: translate(-3px);
-  box-shadow: 0 10px 20px #e0b519;
+  box-shadow: 0 10px 20px #9a832d;
 }
 .contact-form{
   display: flex;
@@ -759,7 +852,7 @@ label {
 .form-group input:focus,
 .form-group textarea:focus{
   outline: none;
-  border-color: #f8ef38;
+  border-color: #c7c5a4;
 }
 .form-group textarea{
   resize: vertical;
@@ -958,6 +1051,7 @@ label {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
 
 
 
