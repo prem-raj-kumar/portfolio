@@ -30,7 +30,38 @@ body {
   color: #f4d733;
   transform: scale(1.05) rotate(2deg);
 }
+/* Side Nav Item */
+.side-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Hidden label */
+.nav-label {
+  position: absolute;
+  left: 70px;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffce09;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+
+  pointer-events: none;
+}
+
+/* Show on hover */
+.side-nav-item:hover .nav-label {
+  opacity: 1;
+  transform: translateX(0);
+}
 /* ======================================================
    GLASS HEADER (TITLE ONLY)
 ====================================================== */
