@@ -64,6 +64,27 @@
        
       <div class="project-card">
         <div class="project-image">
+          <img src="../assets/images/thumbnails/credit_thumbnail.png" alt="Credit Risk Analysis Project">
+        </div>
+        <div class="project-content">
+          <h3>Credit Risk Analysis</h3>
+
+          <span class="project-domain">Finance Analytics</span>
+
+          <p>
+            Leveraging Machine Learning to quantify lending risk and predict payment delinquency.
+          </p>
+          
+
+          <a href="#" class="project-link outline-btn"
+            onclick="openProjectModal('credit'); return false;">
+            See My Work
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
           <img src="../assets/images/thumbnails/student_analysis_thumbnail.png" alt="Students Performance Project">
         </div>
         <div class="project-content">
@@ -83,7 +104,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="project-image">
           <img src="../assets/images/thumbnails/books_analysis.png" alt="Sales Data Project">
         </div>
@@ -100,7 +121,7 @@
             See My Work
           </a>
         </div>
-      </div>
+      </div> -->
       
     </section>
   </main>
@@ -168,7 +189,7 @@
                   <div class="footer-main">
                       <!--<div class="footer-logo">The P R K</div>-->
                         <div class="footer-copyright">
-                            © 2025 Prem Raj Kumar. All rights reserved.
+                            © 2026 Prem Raj Kumar. All rights reserved.
                         </div>
                         <div class="footer-legal">
                           <a href="/privacy-policy.html">Privacy Policy</a>
@@ -209,13 +230,48 @@
 const IMAGE_BASE = "../assets/images/";
 
 const projects = {
+
+  "credit": {
+    title: "Credit Risk Analysis",
+    badge: "Python Project",
+    description:
+      ` <strong>Problem Statement</strong>
+        Financial institutions face significant losses when borrowers fail to meet their debt obligations.
+        The challenge lies in identifying high-risk individuals before delinquency occurs.
+        This project aims to build a predictive model that classifies whether a customer will have a Delinquent Account based on their financial history, credit utilization, and recent payment behaviors across a 6-month window.<br><br>
+        <strong>Project Overview</strong><br>
+      This analysis utilizes a dataset of 500 customers, evaluating 19 distinct features including income, debt-to-income ratios, and categorical payment statuses (Late, Missed, On-time).<br>
+      <strong>Data Cleaning:</strong> Handled missing values in critical fields like Income and Loan_Balance.<br>
+      <strong>Feature Engineering:</strong> Processed categorical timelines (Month 1-6) to capture behavioral trends.<br>
+      <strong>Modeling:</strong> Implemented a Logistic Regression classifier to provide a baseline for delinquency probability.<br><br>
+      <strong>Key Findings (Preliminary)</strong><br>
+      <strong>Credit Utilization:</strong> The average utilization sits at 49%, a high-risk indicator for many traditional lenders.<br>
+      <strong>Missed Payments:</strong> There is a strong correlation between the number of Missed_Payments (mean of ~3) and the likelihood of a Delinquent_Account.<br>
+      <strong>Debt-to-Income (DTI):</strong> The average DTI of 0.30 suggests that while many customers are within standard limits, the variance in loan balances ($612 to $99,620) significantly impacts risk.<br>
+      <strong>Demographics:</strong> The dataset covers a wide age range (18–74), allowing for insights into how life stages affect repayment reliability.`,
+    summary:
+      `Impact: This model provides a data-driven framework for credit risk assessment, potentially reducing default rates by flagging high-risk profiles during the early stages of the lending lifecycle.`,
+    images: [
+      `${IMAGE_BASE}python/heatmap.png`,
+      `${IMAGE_BASE}python/creditscore.png`,
+      `${IMAGE_BASE}python/missedpayments.png`,
+      `${IMAGE_BASE}python/creditVSmissed.png`,
+      `${IMAGE_BASE}python/accuracy.png`
+    ],
+    tools: ["Python", "NumPy", "Matplotlib", "Pandas", "Scikit-Learn","Logistic Regression"],
+    github: "https://github.com/prem-raj-kumar/credit-risk-analysis",
+    live: "#"
+  },
+
+  
   "student-performance": {
     title: "Student Performance Analysis",
     badge: "Python Project",
 
      description: 
-      ` Analyzed student academic performance data to identify factors
-      affecting outcomes and uncover improvement opportunities.<br><br>
+      ` <strong>Business Problem:</strong>
+      Educational institutions often struggle to understand which factors most strongly influence student academic performance. While exam scores measure academic success, they are influenced by many behavioral, social, and environmental factors.
+      This project analyzes a dataset containing information about student habits, academic background, lifestyle factors, and family conditions.<br><br>
 
       <strong>Dataset Size:</strong> 6,607 students<br>
       <strong>Objective:</strong> Identify the key factors influencing Exam Score
@@ -223,10 +279,12 @@ const projects = {
 
       <strong>Key Findings</strong><br>
 
-      Attendance is the strongest predictor of exam success.<br>
-      Increased study hours significantly improve performance.<br>
-      Targeted tutoring positively impacts outcomes.<br>
-      Institutional interventions can improve average scores by ~10%.
+      <strong>Study Habits:</strong> Hours Studied and Attendance are the strongest predictors of high exam scores.<br>
+      <strong>Academic History:</strong> Previous Scores show a direct correlation with current results, indicating performance consistency.<br>
+      <strong>External Support:</strong> Access to Resources and Tutoring provide a measurable lift in average scores.<br><br>
+
+      Academic success in this dataset is primarily driven by effort (study hours) and consistency (attendance),
+      while socio-economic factors like Family Income act as a safety net rather than a guarantee of top performance.
       `,
       
       
@@ -244,28 +302,14 @@ const projects = {
       `${IMAGE_BASE}python/python_img5.png`
     ],
 
-    tools: ["Python", "Pandas", "EDA"],
+    tools: ["Python", "Pandas", "EDA", "Matplotlib"],
 
     github: "https://github.com/prem-raj-kumar/student-performance-analysis",
     live: "#"
-  },
-
-
-  "sales": {
-    title: "Book Sales Analysis",
-    badge: "Python Project",
-    description:
-      "Analyzed regional sales data to identify growth patterns, key revenue drivers, and actionable insights for business decisions.",
-    summary:
-      "The analysis focused on regional performance, revenue contribution, and trend identification to support data-driven decisions.",
-    images: [
-      "images/sales-1.png",
-      "images/sales-2.png"
-    ],
-    tools: ["Python", "NumPy", "Matplotlib"],
-    github: "https://github.com/yourname/sales-analysis",
-    live: "#"
   }
+
+
+  
 };
 
 /* =====================================================
