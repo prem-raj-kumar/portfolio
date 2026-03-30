@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <!-- Pizza Order Management -->
+      <!-- Pizza Order Management 
       <div class="project-card">
         <div class="project-image">
           <img src="../assets/images/thumbnails/pizza_thumbnail.png" alt="Sales Data Project">
@@ -102,7 +102,7 @@
             See My Work
           </a>
         </div>
-      </div>
+      </div> -->
 
     </section>
   </main>
@@ -254,7 +254,7 @@ function openProjectModal(key) {
   // Text content
   modalTitle.textContent = project.title;
   modalBadge.textContent = project.badge;
-  modalDescription.textContent = project.description;
+  modalDescription.innerHTML = projects[projectId].description;
   modalSummary.textContent = project.summary;
 
   // Links
