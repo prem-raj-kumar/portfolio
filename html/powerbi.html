@@ -64,7 +64,28 @@
        
       <div class="project-card">
         <div class="project-image">
-          <img src="titanic_passengers_thumbnail.png" alt="Titanic Passengers Dashboard">
+          <img src="../assets/images/thumbnails/movies_pb_thumbnail.png" alt="Movie Sales Analysis">
+        </div>
+        <div class="project-content">
+          <h3>Movie Sales Analysis</h3>
+
+          <span class="project-domain">Box-Office Revenue</span>
+
+          <p>
+            This project analyzes a dataset of 1,000 movies from 2006–2016 to uncover key drivers of box-office success across various genres and runtimes. Using Power BI, the dashboard visualizes a $72.3B market to identify how viewer preferences
+            and production volume have shifted toward shorter, high-revenue action and adventure films.
+          </p>
+
+          <a href="#" class="project-link outline-btn"
+            onclick="openProjectModal('movies'); return false;">
+            See My Work
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="../assets/images/thumbnails/titanic_thumbnail.png" alt="Titanic Passengers Dashboard">
         </div>
         <div class="project-content">
           <h3>Titanic Passengers</h3>
@@ -72,7 +93,9 @@
           <span class="project-domain">Case Study</span>
 
           <p>
-            Analyzed student academic performance to identify factors affecting outcomes.
+            A deep-dive data study of the 1912 Titanic disaster.
+             This project analyzes a dataset of 891 passengers to uncover the socio-economic and demographic factors that determined survival,
+              featuring an interactive dashboard built in Power BI.
           </p>
 
           <a href="#" class="project-link outline-btn"
@@ -149,7 +172,7 @@
                   <div class="footer-main">
                       <!--<div class="footer-logo">The P R K</div>-->
                         <div class="footer-copyright">
-                            © 2025 Prem Raj Kumar. All rights reserved.
+                            © 2026 Prem Raj Kumar. All rights reserved.
                         </div>
                         <div class="footer-legal">
                           <a href="/privacy-policy.html">Privacy Policy</a>
@@ -187,13 +210,55 @@
 ===================================================== */
 const IMAGE_BASE = "../assets/images/";
 const projects = {
+  "movies": {
+    title: "Movie Sales Analysis Dashboard",
+    badge: "PowerBI Project",
+    
+    description:
+    ` <strong>Problem Statement:</strong> The global film industry is highly competitive, with success determined by genre, audience reception, and timing. Stakeholders lack a centralized way to identify which factors most consistently drive revenue.
+  This project analyzes historical movie data (2006–2016) to uncover trends in viewer preferences and financial performance to optimize future production strategies.<br><br>
+
+  <strong>Market Expansion:</strong> Annual releases surged by 575%, peaking at 297 movies in 2016 and generating $31.1B in that year alone.<br>
+  <strong>Revenue Leaders:</strong> Adventure and Action genres dominate the box office, contributing a combined total of over $74B in revenue.<br>
+  <strong>Quality vs. Quantity:</strong> As production volume scaled toward 2016, average IMDb ratings saw a notable decline from 7.1 to 6.4.<br>
+  <strong>Viewer Preferences:</strong> Data reveals a shift toward shorter content, with average runtimes dropping to 108 minutes to favor faster-paced storytelling.`,
+
+summary:
+  "The metrics in this report are based on a dataset of 1,000 movies from 2006-2016. The analysis highlights a clear correlation between genre selection and box office success, alongside a 'quantity-over-quality' trend in recent years.",
+
+    images: [
+      `${IMAGE_BASE}powerbi/movies1.png`,
+      `${IMAGE_BASE}powerbi/movies2.png`,
+      `${IMAGE_BASE}powerbi/movies3.png`
+    ],
+    tools: ["PowerQuery", "DAX"],
+    github: "https://github.com/prem-raj-kumar/titanic-powerbi-dashboard",
+    live: "#"
+  },
+
+
+
+  
+
   "titanic": {
     title: "Titanic Passenger Dashboard",
     badge: "PowerBI Project",
+    
     description:
-      "Analyzed student academic performance data to identify factors affecting outcomes and uncover improvement opportunities.",
+      ` This project explores the tragic maiden voyage of the RMS Titanic through a data-driven lens. By cleaning and modeling passenger manifest data,
+       I identified key survival patterns across different classes and age groups.
+       The analysis reveals a 38% overall survival rate, with a stark contrast in outcomes between passenger classes.
+      Despite representing the smallest group, 1st Class passengers accounted for over 63% of the total $38.16K ticket revenue,
+      highlighting the massive wealth gap and its direct correlation to survival priority during the evacuation.<br><br>
+      
+      <strong>Survival Probability:</strong> Out of 891 passengers, 342 survived, maintaining a survival rate of 38%.<br>
+      <strong>Revenue Concentration:</strong> 1st Class passengers contributed over 63% ($24.2K) of the total $38.16K ticket revenue.<br>
+      <strong>Demographic Insights:</strong> Age distribution peaks in the 20–35 bracket, with a clear focus on survival trends across different age groups.<br>
+      <strong>Socio-Economic Correlation:</strong> Dashboard slicers reveal a direct link between higher passenger class and increased survival rates.`,
+      
+      
     summary:
-      "This project explores score distributions, demographic impact, and performance trends using exploratory data analysis techniques.",
+      "The metrics in this report are based on the standard Titanic research dataset (891 passengers). While a sample, the financial and survival percentages closely mirror documented historical records from 1912.",
     images: [
       `${IMAGE_BASE}powerbi/titanic_passengers.png`
     ],
@@ -239,7 +304,7 @@ function openProjectModal(key) {
   // Text content
   modalTitle.textContent = project.title;
   modalBadge.textContent = project.badge;
-  modalDescription.textContent = project.description;
+  modalDescription.innerHTML = project.description;
   modalSummary.textContent = project.summary;
 
   // Links
